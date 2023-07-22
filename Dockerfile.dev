@@ -1,0 +1,12 @@
+#Image Base
+FROM node:14-alpine
+##Working directory when next command are execute
+WORKDIR '/app'
+#Copy file package.json from current directory
+COPY package.json .
+#Install depedency
+RUN npm install 
+#Coppy source file from current diretory to workdir if package.json has no chage 
+COPY . .
+#Run command npm run start inside container
+CMD [ "npm", "run", "start" ]
