@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t loehoedp/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run loehoedp/docker-react npm run test -- --coverage
+
